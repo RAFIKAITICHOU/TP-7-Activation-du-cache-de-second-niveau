@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+        xmlns='http://www.ehcache.org/v3'
+        xsi:schemaLocation='http://www.ehcache.org/v3
+        http://www.ehcache.org/schema/ehcache-core-3.0.xsd'>
+
+    <!-- Région des entités -->
+    <cache alias="com.example.model.Auteur">
+        <expiry><ttl unit="minutes">60</ttl></expiry>
+        <heap unit="entries">1000</heap>
+    </cache>
+
+    <cache alias="com.example.model.Livre">
+        <expiry><ttl unit="minutes">60</ttl></expiry>
+        <heap unit="entries">1000</heap>
+    </cache>
+
+    <!-- Région de la collection Auteur.livres (non cachée par défaut) -->
+    <cache alias="com.example.model.Auteur.livres">
+        <expiry><ttl unit="minutes">60</ttl></expiry>
+        <heap unit="entries">1000</heap>
+    </cache>
+
+    <!-- Régions techniques Hibernate (noms utilisés par hibernate-jcache) -->
+    <cache alias="default-update-timestamps-region">
+        <heap unit="entries">10000</heap>
+    </cache>
+
+    <cache alias="default-query-results-region">
+        <expiry><ttl unit="minutes">60</ttl></expiry>
+        <heap unit="entries">10000</heap>
+    </cache>
+</config>
